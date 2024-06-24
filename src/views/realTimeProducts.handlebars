@@ -1,0 +1,52 @@
+<main class="container" style="padding: 0">
+    <h2> Manejo de Productos</h2>
+<div class="container" style="display: flex; padding: 0">
+    {{!-- Formulario de carga para un nuevo producto --}}
+    <div class="container" style="padding: 1.5em; border: solid 0.5px rgb(196, 194, 194);">
+    <h4 style="margin-bottom: 1em">Agregar producto:</h4>
+        <form id="addForm">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titleId" name="title">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="descriptionId" name="description">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Stock</label>
+                <input type="text" class="form-control" id="stockId" name="stock">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Precio</label>
+                <input type="text" class="form-control" id="priceId" name="price">
+            </div>
+            <button type="submit" class="btn btn-primary" id="buttonId">Enviar</button>
+        </form>
+    </div>
+
+    {{!-- Formulario para eliminar un producto --}}
+    <div class="container" style="padding: 1.5em; border: solid 0.5px rgb(196, 194, 194);">
+    <h4 style="margin-bottom: 1em">Eliminar un producto:</h4>
+        <form id="deleteForm">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Id</label>
+                <input type="text" class="form-control" id="productId" name="id">
+            </div>
+            <button type="submit" class="btn btn-primary" id="buttonId">Enviar</button>
+        </form>
+    </div>    
+</div>
+
+<div class="container" style="margin-top: 1em; padding: 0">
+    {{!-- Mostramos los productos --}}
+    <h4>Listado de Actualizado</h4>
+    <div id="productsList"></div>
+</div>
+</main>
+
+{{!-- Paquete de socket io --}}
+<script src="/socket.io/socket.io.js"></script>
+
+{{!-- Nuestro script --}}
+<script src="/js/index.js"></script>

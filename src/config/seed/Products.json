@@ -1,0 +1,182 @@
+[
+    {
+        "title": "Producto 1",
+        "description": "Descripcion del producto 1",
+        "price": 10000,
+        "category": "libros",
+        "code": "abcd12345",
+        "stock": 10,
+        "thumbnail": ["https://google.com/image1"]
+    },
+    {
+        "title": "Producto 2",
+        "description": "Descripcion del producto 2",
+        "price": 15000,
+        "category": "ropa",
+        "code": "abcd12346",
+        "stock": 20,
+        "thumbnail": ["https://google.com/image2"]
+    },
+    {
+        "title": "Producto 3",
+        "description": "Descripcion del producto 3",
+        "price": 20000,
+        "category": "calzado",
+        "code": "abcd12347",
+        "stock": 30,
+        "thumbnail": ["https://google.com/image3"]
+    },
+    {
+        "title": "Producto 4",
+        "description": "Descripcion del producto 4",
+        "price": 25000,
+        "category": "libros",
+        "code": "abcd12348",
+        "stock": 40,
+        "thumbnail": ["https://google.com/image4"]
+    },
+    {
+        "title": "Producto 5",
+        "description": "Descripcion del producto 5",
+        "price": 30000,
+        "category": "ropa",
+        "code": "abcd12349",
+        "stock": 50,
+        "thumbnail": ["https://google.com/image5"]
+    },
+    {
+        "title": "Producto 6",
+        "description": "Descripcion del producto 6",
+        "price": 35000,
+        "category": "calzado",
+        "code": "abcd12350",
+        "stock": 60,
+        "thumbnail": ["https://google.com/image6"]
+    },
+    {
+        "title": "Producto 7",
+        "description": "Descripcion del producto 7",
+        "price": 40000,
+        "category": "libros",
+        "code": "abcd12351",
+        "stock": 70,
+        "thumbnail": ["https://google.com/image7"]
+    },
+    {
+        "title": "Producto 8",
+        "description": "Descripcion del producto 8",
+        "price": 45000,
+        "category": "ropa",
+        "code": "abcd12352",
+        "stock": 80,
+        "thumbnail": ["https://google.com/image8"]
+    },
+    {
+        "title": "Producto 9",
+        "description": "Descripcion del producto 9",
+        "price": 50000,
+        "category": "calzado",
+        "code": "abcd12353",
+        "stock": 90,
+        "thumbnail": ["https://google.com/image9"]
+    },
+    {
+        "title": "Producto 10",
+        "description": "Descripcion del producto 10",
+        "price": 55000,
+        "category": "libros",
+        "code": "abcd12354",
+        "stock": 100,
+        "thumbnail": ["https://google.com/image10"]
+    },
+    {
+        "title": "Producto 11",
+        "description": "Descripcion del producto 11",
+        "price": 60000,
+        "category": "ropa",
+        "code": "abcd12355",
+        "stock": 110,
+        "thumbnail": ["https://google.com/image11"]
+    },
+    {
+        "title": "Producto 12",
+        "description": "Descripcion del producto 12",
+        "price": 65000,
+        "category": "calzado",
+        "code": "abcd12356",
+        "stock": 120,
+        "thumbnail": ["https://google.com/image12"]
+    },
+    {
+        "title": "Producto 13",
+        "description": "Descripcion del producto 13",
+        "price": 70000,
+        "category": "libros",
+        "code": "abcd12357",
+        "stock": 130,
+        "thumbnail": ["https://google.com/image13"]
+    },
+    {
+        "title": "Producto 14",
+        "description": "Descripcion del producto 14",
+        "price": 75000,
+        "category": "ropa",
+        "code": "abcd12358",
+        "stock": 140,
+        "thumbnail": ["https://google.com/image14"]
+    },
+    {
+        "title": "Producto 15",
+        "description": "Descripcion del producto 15",
+        "price": 80000,
+        "category": "calzado",
+        "code": "abcd12359",
+        "stock": 150,
+        "thumbnail": ["https://google.com/image15"]
+    },
+    {
+        "title": "Producto 16",
+        "description": "Descripcion del producto 16",
+        "price": 85000,
+        "category": "libros",
+        "code": "abcd12360",
+        "stock": 160,
+        "thumbnail": ["https://google.com/image16"]
+    },
+    {
+        "title": "Producto 17",
+        "description": "Descripcion del producto 17",
+        "price": 90000,
+        "category": "ropa",
+        "code": "abcd12361",
+        "stock": 170,
+        "thumbnail": ["https://google.com/image17"]
+    },
+    {
+        "title": "Producto 18",
+        "description": "Descripcion del producto 18",
+        "price": 95000,
+        "category": "calzado",
+        "code": "abcd12362",
+        "stock": 180,
+        "thumbnail": ["https://google.com/image18"]
+    },
+    {
+        "title": "Producto 19",
+        "description": "Descripcion del producto 19",
+        "price": 100000,
+        "category": "libros",
+        "code": "abcd12363",
+        "stock": 190,
+        "thumbnail": ["https://google.com/image19"]
+    },
+    {
+        "title": "Producto 20",
+        "description": "Descripcion del producto 20",
+        "price": 105000,
+        "category": "ropa",
+        "code": "abcd12364",
+        "stock": 200,
+        "thumbnail": ["https://google.com/image20"]
+    }
+]
