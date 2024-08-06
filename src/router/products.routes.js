@@ -1,11 +1,13 @@
 import { Router } from "express";
 import { checkProductData } from "../middlewares/checkProductData.middleware.js";
 import productDao from "../dao/mongoDB/product.dao.js";
+import { passportCall } from "../middlewares/passport.middleware.js";
+import { authorization } from "../middlewares/authorization.middleware.js";
 
 const router = Router();
 
 
-router.get("/", async (req, res) => {
+router.get("/", passportCall("jwt"), authorization("user"), async (req, res) => { //contiene middlewares para chekear token de un usuario autenticado(osea, debe estar logueado) y asi acceder a los productos, y el 2do es para verificar que tenga rol de usuario
     try {
         //CONFIGURAMOS NUESTRA PAGINACION: 
         // 1) declaramos las posibles querys
