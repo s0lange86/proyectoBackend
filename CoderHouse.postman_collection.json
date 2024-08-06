@@ -15,7 +15,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products",
+							"raw": "http://localhost:8080/api/products?sort=asc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -43,8 +43,7 @@
 								},
 								{
 									"key": "sort",
-									"value": "asc",
-									"disabled": true
+									"value": "asc"
 								}
 							]
 						}
@@ -57,7 +56,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/1",
+							"raw": "http://localhost:8080/api/products/6678a2754b4aa5d007c561cd",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -66,7 +65,7 @@
 							"path": [
 								"api",
 								"products",
-								"1"
+								"6678a2754b4aa5d007c561cd"
 							]
 						}
 					},
@@ -79,7 +78,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Producto 3\",\r\n    \"description\": \"Descripcion del producto 4\",\r\n    \"price\": 35000,\r\n    \"category\": \"libros\",\r\n    \"code\": \"abcd12345\",\r\n    \"stock\": 25,\r\n    \"thumbnail\": [\"google.com/image\"]\r\n}",
+							"raw": "{\r\n    \"title\": \"Producto 21\",\r\n    \"description\": \"Descripcion del producto 21\",\r\n    \"price\": 35000,\r\n    \"category\": \"libros\",\r\n    \"code\": \"ghj123\",\r\n    \"stock\": 25,\r\n    \"thumbnail\": [\"google.com/image\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,7 +107,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"producto modificado\"\r\n}",
+							"raw": "{\r\n    \"price\": 88000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -116,7 +115,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/products/2",
+							"raw": "http://localhost:8080/api/products/6678a701fcfff061f5008b9d",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -125,7 +124,7 @@
 							"path": [
 								"api",
 								"products",
-								"2"
+								"6678a701fcfff061f5008b9d"
 							]
 						}
 					},
@@ -137,7 +136,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/2",
+							"raw": "http://localhost:8080/api/products/6678bc20272ec2a8317806de",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -146,7 +145,7 @@
 							"path": [
 								"api",
 								"products",
-								"2"
+								"6678bc20272ec2a8317806de"
 							]
 						}
 					},
@@ -181,7 +180,20 @@
 					"name": "Get Cart by ID",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/carts/66774b7bc99ca809d4326c59",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"66774b7bc99ca809d4326c59"
+							]
+						}
 					},
 					"response": []
 				},
@@ -191,7 +203,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carts/66774b75c99ca809d4326c57/product/6667c6c3bce02634b962e56c",
+							"raw": "http://localhost:8080/api/carts/66774b7cc99ca809d4326c5b/product/6678a2754b4aa5d007c560c2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -200,9 +212,9 @@
 							"path": [
 								"api",
 								"carts",
-								"66774b75c99ca809d4326c57",
+								"66774b7cc99ca809d4326c5b",
 								"product",
-								"6667c6c3bce02634b962e56c"
+								"6678a2754b4aa5d007c560c2"
 							]
 						}
 					},
@@ -214,7 +226,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carts/66774b75c99ca809d4326c57/product/66775997644b28a2683929cc",
+							"raw": "http://localhost:8080/api/carts/66774b75c99ca809d4326c57/product/6678a2754b4aa5d007c560c5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -225,7 +237,7 @@
 								"carts",
 								"66774b75c99ca809d4326c57",
 								"product",
-								"66775997644b28a2683929cc"
+								"6678a2754b4aa5d007c560c5"
 							]
 						}
 					},
@@ -238,7 +250,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"quantity\" : 700\r\n}",
+							"raw": "{\r\n    \"quantity\" : 25\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -246,7 +258,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/carts/66774b75c99ca809d4326c57/product/6667c6c3bce02634b962e56c",
+							"raw": "http://localhost:8080/api/carts/66774b7bc99ca809d4326c59/product/6678a2754b4aa5d007c560c1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -255,9 +267,9 @@
 							"path": [
 								"api",
 								"carts",
-								"66774b75c99ca809d4326c57",
+								"66774b7bc99ca809d4326c59",
 								"product",
-								"6667c6c3bce02634b962e56c"
+								"6678a2754b4aa5d007c560c1"
 							]
 						}
 					},
@@ -267,7 +279,136 @@
 					"name": "Delete all products in Cart",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/carts/66774b75c99ca809d4326c57",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"66774b75c99ca809d4326c57"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Usuario4\",\r\n    \"last_name\": \"Test\",\r\n    \"email\": \"user4@mail.com\",\r\n    \"password\": \"abc123\",\r\n    \"age\": 34\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/session/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"session",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User (con passport/con token)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user2@mail.com\",\r\n    \"password\": \"abc123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/session/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"session",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Authenticate Token (sin passport)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user2@mail.com\",\r\n    \"password\": \"abc123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/session/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"session",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/session/current",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"session",
+								"current"
+							]
+						}
 					},
 					"response": []
 				}
