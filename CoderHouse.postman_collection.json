@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "8afdf23e-460b-41f2-9d15-5b353fca02ac",
 		"name": "CoderHouse",
+		"description": "Curso Backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33249134"
 	},
@@ -56,7 +57,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/products/6678a2754b4aa5d007c561cd",
+							"raw": "http://localhost:8080/api/products/6678a2754b4aa5d007c560bc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -65,7 +66,7 @@
 							"path": [
 								"api",
 								"products",
-								"6678a2754b4aa5d007c561cd"
+								"6678a2754b4aa5d007c560bc"
 							]
 						}
 					},
@@ -182,7 +183,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carts/66774b7bc99ca809d4326c59",
+							"raw": "http://localhost:8080/api/carts/66b235f5e73221cbd8b38c3e",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -191,7 +192,7 @@
 							"path": [
 								"api",
 								"carts",
-								"66774b7bc99ca809d4326c59"
+								"66b235f5e73221cbd8b38c3e"
 							]
 						}
 					},
@@ -203,7 +204,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carts/66774b7cc99ca809d4326c5b/product/6678a2754b4aa5d007c560c2",
+							"raw": "http://localhost:8080/api/carts/66b235f5e73221cbd8b38c3e/product/6678a2754b4aa5d007c560c3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -212,9 +213,9 @@
 							"path": [
 								"api",
 								"carts",
-								"66774b7cc99ca809d4326c5b",
+								"66b235f5e73221cbd8b38c3e",
 								"product",
-								"6678a2754b4aa5d007c560c2"
+								"6678a2754b4aa5d007c560c3"
 							]
 						}
 					},
@@ -295,6 +296,28 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Purchase Cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/carts/66b235f5e73221cbd8b38c3e/purchase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"66b235f5e73221cbd8b38c3e",
+								"purchase"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -308,7 +331,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Usuario4\",\r\n    \"last_name\": \"Test\",\r\n    \"email\": \"user4@mail.com\",\r\n    \"password\": \"abc123\",\r\n    \"age\": 34\r\n}",
+							"raw": "{\r\n    \"first_name\": \"Usuario5\",\r\n    \"last_name\": \"Test\",\r\n    \"email\": \"user6@mail.com\",\r\n    \"password\": \"abc123\",\r\n    \"age\": 36\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
