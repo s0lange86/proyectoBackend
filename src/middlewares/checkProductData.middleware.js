@@ -1,5 +1,5 @@
 import { request, response } from "express";
-import productDao from "../dao/mongoDB/product.dao.js";
+import productRepository from "../persistence/mongoDB/product.repository.js";
 
 
 export const checkProductData = async (req = request,  res = response, next) => {
@@ -15,7 +15,7 @@ export const checkProductData = async (req = request,  res = response, next) => 
             category
         };
 
-        const products = await productDao.getAll();
+        const products = await productRepository.getAll();
 
         //VALIDACIONES:
         //verificamos que el code no se repita con uno ya existente

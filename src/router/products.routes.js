@@ -1,109 +1,25 @@
 import { Router } from "express";
 import { checkProductData } from "../middlewares/checkProductData.middleware.js";
-import productDao from "../dao/mongoDB/product.dao.js";
 import { passportCall } from "../middlewares/passport.middleware.js";
 import { authorization } from "../middlewares/authorization.middleware.js";
+import productsControllers from "../controllers/products.controllers.js";
+
 
 const router = Router();
 
+//OBTENEMOS TODOS LOS PRODUCTOS:
+router.get("/", passportCall("jwt"), authorization("user"), productsControllers.getAllProducts) //contiene middlewares para chekear token de un usuario autenticado(osea, debe estar logueado) y asi acceder a los productos, y el 2do es para verificar que tenga rol de usuario
 
-router.get("/", passportCall("jwt"), authorization("user"), async (req, res) => { //contiene middlewares para chekear token de un usuario autenticado(osea, debe estar logueado) y asi acceder a los productos, y el 2do es para verificar que tenga rol de usuario
-    try {
-        //CONFIGURAMOS NUESTRA PAGINACION: 
-        // 1) declaramos las posibles querys
-        const { limit, page, sort, category, status } = req.query;
+//OBTENEMOS UN PRODUCTO SEGUN SU ID
+router.get("/:pid", productsControllers.getProductById)
 
-        // 2) configuramos el valor de las querys que nos puedan llegar: el primer valor es lo que se defina por query y el segundo seria el valor que definimos por defecto
-        const options = {
-            limit: limit || 10,
-            page: page || 1,
-            sort: {
-                price: sort == "asc" ? 1 : -1 // 1 = ascendente y -1 = descendente
-            },
-            learn: true
-        }
+//CREAMOS UN NUEVO PRODUCTO
+router.post("/", checkProductData, authorization("admin"), productsControllers.createProduct)
 
-        let products;
+//ACTUALIZAMOS DATA DE UN PRODUCTO
+router.put("/:pid", authorization("admin"), productsControllers.updateProduct)
 
-        // 3) Si nos solicitan los productos por una categoria específica
-        if (category) {
-            products = await productDao.getAll({ category }, options);
-        } 
-        // 4) Si nos consultan por disponibilidad de un producto (status)
-        else if (status) {
-            products = await productDao.getAll({ status }, options);
-        } 
-        // 5) si no se especifica ningun filtro
-        else {
-            products = await productDao.getAll({}, options); //primer parametro quedan las llaves vacías porque no filtramos
-        }
-
-        res.status(200).json({ status: "Success", products });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ status: "Error", mensaje: "Error del servidor..." });
-    }
-})
-
-router.get("/:pid", async (req, res) => {
-    try {
-        const { pid } = req.params;
-        const product = await productDao.getById(pid)
-
-        if(!product) return res.status(404).json({ status: "Error", mensaje: "Producto ingresado no encontrado" });
-
-        res.status(200).json({ status: "Success", product});
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ status: "Error", mensaje: "Error del servidor..." });
-    }
-})
-
-
-router.post("/", checkProductData, async (req, res) => {
-    try {
-        const productData = req.body;
-        const product = await productDao.createItem(productData);
-
-        res.status(201).json({ status: "Success", product }); //status 201: se ha creado un producto
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ status: "Error", mensaje: "Error del servidor..." });
-    }
-})
-
-router.put("/:pid", async (req, res) => {
-    try {
-        const { pid } = req.params;
-        const productData = req.body;
-        const product = await productDao.updateItem(pid, productData)
-
-        if(!product) return res.status(404).json({status: "Error", mensaje: "Producto ingresado no encontrado"});
-
-        res.status(200).json({ status: "Success", product});
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ status: "Error", mensaje: "Error del servidor..." });
-    }
-})
-
-
-router.delete("/:pid", async (req, res) => {
-    try {
-        const { pid } = req.params;
-        const product = await productDao.deleteItem(pid)
-
-        if(!product) return res.status(404).json({status: "Error", mensaje: "Producto ingresado no encontrado"});
-
-        res.status(200).json({ status: "Success", mensaje: "Producto eliminado exitosamente"});
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ status: "Error", mensaje: "Error del servidor..." });
-    }
-})
+//BORRAMOS UN PRODUCTO EXISTENTE
+router.delete("/:pid", authorization("admin"), productsControllers.deleteProduct)
 
 export default router;

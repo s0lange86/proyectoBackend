@@ -1,7 +1,7 @@
 import { request, response } from "express";
 import mongoose from "mongoose";
-import productDao from "../dao/mongoDB/product.dao.js";
-import cartDao from "../dao/mongoDB/cart.dao.js";
+import productRepository from "../persistence/mongoDB/product.repository.js"
+import cartRepository from "../persistence/mongoDB/cart.repository.js";
 
 export const checkIdData = async ( req = request,  res = response, next ) => {
     try {
@@ -18,11 +18,11 @@ export const checkIdData = async ( req = request,  res = response, next ) => {
         }
 
         //buscamos por id el carrito y si no existe informamos el error
-        const cart = await cartDao.getById(cid)
+        const cart = await cartRepository.getById(cid)
         if(!cart) return res.status(404).json({ status: "Error", mensaje: `Carrito ingresado no encontrado (id: ${cid})` });
 
         //buscamos por id el producto y si no existe informamos el error
-        const product = await productDao.getById(pid);
+        const product = await productRepository.getById(pid);
         if(!product) return res.status(404).json({ status: "Error", mensaje: `Producto ingresado no encontrado (id: ${pid})` });
 
         next(); //si no hay errores que prosiga con la ejecución...

@@ -3,8 +3,8 @@ import local from "passport-local";
 import passportJWT from "passport-jwt";
 import passportCustom from "passport-custom";
 
-import userDao from "../dao/mongoDB/user.dao.js";
-import cartDao from "../dao/mongoDB/cart.dao.js";
+import userRepository from "../persistence/mongoDB/user.repository.js";
+import cartRepository from "../persistence/mongoDB/cart.repository.js";
 import envs from "./envs.config.js";
 
 import { createHash, isValidPassword } from "./../utils/hashPassword.js";
@@ -31,11 +31,11 @@ export const initializePassport = () => {
                 try {
                     const {first_name, last_name, age} = req.body;
                     //vamos a chequear si el usuario existe con nuestro "dao":
-                    const user = await userDao.getByEmail(username); //username = email
+                    const user = await userRepository.getByEmail(username); //username = email
                     if(user) return done(null, false, { message: "User already exists" }); //done: 1ero ponemos "null" porque no hay ningun error, 2do "false" porque como estamos registrando no podemos pasar un usuario que exista (es un parámetro opcional), y 3ero un mensaje para mostrar (tambien es opcional)
 
                     //si el usuario no existe, osea, no entro en el "if" anterior, pasamos a crear un carrito y al registro del nuevo usuario:
-                    const newCart = await cartDao.createItem();
+                    const newCart = await cartRepository.createItem();
 
                     const newUser = {
                         first_name, 
@@ -46,7 +46,7 @@ export const initializePassport = () => {
                         cart: newCart._id //pasamos el id del carrito que se acaba de crear en la linea 35
                     }
 
-                    const userCreate = await userDao.create(newUser);
+                    const userCreate = await userRepository.create(newUser);
                     return done(null, userCreate); //done: no pasamos 3er parámetro (es opcional)
 
                 } catch (error) {
@@ -61,7 +61,7 @@ export const initializePassport = () => {
         "login", 
         new LocalStrategy({ usernameField: "email" }, async (username, password, done) => {
             try {
-                const user = await userDao.getByEmail(username);
+                const user = await userRepository.getByEmail(username);
                 if (!user || !isValidPassword(user.password, password) ) return done(null, false, { message: "User or password are incorrect" });
 
                 return done(null, user)
@@ -102,7 +102,7 @@ export const initializePassport = () => {
                     const tokenVerify = verifyToken(token); // verificamos el token que sea valido (no alterado) y nos traiga la info del usuario (id, email, rol y cart)
                     if(!tokenVerify) return done(null, false);
 
-                    const user = await userDao.getByEmail(tokenVerify.email)
+                    const user = await userRepository.getByEmail(tokenVerify.email)
 
                     done(null, user);
                 } catch (error) {
@@ -120,7 +120,7 @@ export const initializePassport = () => {
 
     passport.deserializeUser( async ( id, done ) => {
         try {
-            const user = await userDao.getById(id); //buscamos el usuario por identificador unico
+            const user = await userRepository.getById(id); //buscamos el usuario por identificador unico
             done(null, user); // devolvemos el usuario completo, con toda su info
         } catch (error) {
             done(error)

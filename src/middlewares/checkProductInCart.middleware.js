@@ -1,5 +1,5 @@
 import { request, response } from "express";
-import cartDao from "../dao/mongoDB/cart.dao.js";
+import cartRepository from "../persistence/mongoDB/cart.repository.js";
 
 
 export const checkProductInCart = async (req = request,  res = response, next) => {
@@ -7,7 +7,7 @@ export const checkProductInCart = async (req = request,  res = response, next) =
         const { cid, pid } = req.params;
     
         //buscamos por id el carrito y si no existe informamos el error
-        const cart = await cartDao.getById(cid)
+        const cart = await cartRepository.getById(cid)
         if(!cart) return res.status(404).json({ status: "Error", mensaje: `Carrito ingresado no encontrado (id: ${cid})` });
 
         const product = cart.products.find(element => element.product == pid);

@@ -4,7 +4,7 @@ import envs from "./../config/envs.config.js"
 // funcion que crea el token:
 export const createToken = (user) => { // la funcion recibe los datos que vamos a cifrar en el token
     const { _id, email, role, cart } = user;
-    const token = jwt.sign( { _id, email, role, cart }, envs.JWT_CODE, { expiresIn: "2m" } ); // 1er parametro: payload, la data que vamos a guardar dentro de nuestro token, si este no coincide resultara un token invalido; 2do va el codigo secreto; 3ero el tiempo de expiracion
+    const token = jwt.sign( { _id, email, role, cart }, envs.JWT_CODE, { expiresIn: "10m" } ); // 1er parametro: payload, la data que vamos a guardar dentro de nuestro token, si este no coincide resultara un token invalido; 2do va el codigo secreto; 3ero el tiempo de expiracion
     return token;
 }
 

@@ -6,7 +6,7 @@ import handlebars from "express-handlebars";
 import viewRoutes from "./router/views.routes.js"
 
 import { Server } from "socket.io";
-import productDao from "./dao/mongoDB/product.dao.js";
+import productRepository from "./persistence/mongoDB/product.repository.js";
 import { connectMongoDB } from "./config/mongoDB.config.js";
 import envs from "./config/envs.config.js" //variables de entorno
 
@@ -60,6 +60,6 @@ export const io = new Server(httpServer)
 // 3) "handshake":
 io.on("connection", async (socket) => {
     console.log("New client connected");
-    const products = await productDao.getAll();
+    const products = await productRepository.getAll();
     io.emit("products", products)
 })
